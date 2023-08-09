@@ -53,7 +53,7 @@ const Profile = () => {
                     text-center
                     group-hover:text-white
               ">
-                  {user?.email}
+                  {user?.name}
               </div>
             </div>
 
