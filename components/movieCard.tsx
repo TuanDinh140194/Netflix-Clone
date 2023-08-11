@@ -13,7 +13,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   const { openModal } = useInfoModal();
 
   const handleCardClick = () => {
-    if (window.innerWidth <= 640) {
+    if (window.innerWidth <= 820) {
       openModal(data?.id);
     }
   };
@@ -52,7 +52,8 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                 invisible
                 sm:visible
                 delay-300
-                w-[400px]
+                lg:w-[250px]
+                xl:w-[400px]
                 scale-0
                 group-hover:shadow-2xl
                 group-hover:scale-110
@@ -71,7 +72,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                     shadow-xl
                     rounded-t-md
                     w-full
-                    h-[12vw]
+                    h-[10vw]
                     "
           src={data?.thumbnailUrl}
           alt="Thumbnail"
