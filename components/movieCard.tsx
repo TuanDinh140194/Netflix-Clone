@@ -36,7 +36,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                 sm: group-hover:opacity-0
                 delay-300
                 w-full
-                h-[12vw]
+                h-[10vw]
                 "
         src={data?.thumbnailUrl}
         alt="Thumbnail"
@@ -52,12 +52,14 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                 invisible
                 sm:visible
                 delay-300
-                w-full
+                w-[400px]
                 scale-0
+                group-hover:shadow-2xl
                 group-hover:scale-110
                 group-hover:-translate-y-[6vw]
-                group-hover:translate-x-[2vw]
+                group-hover:-translate-x-[0vw]
                 group-hover:opacity-100
+               
                 `}
       >
         <img

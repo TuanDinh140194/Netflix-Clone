@@ -12,7 +12,7 @@ const BillBoard = () => {
     openModal(data?.id);
   }, [openModal, data?.id]);
   return (
-    <div className="relative h-[56.25vw]">
+    <div className="relative h-[50.25vw]">
       <video
         className="w-full h-[56.25vw] object-cover brightness-[60%]"
         autoPlay

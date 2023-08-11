@@ -1,7 +1,7 @@
 import NavbarItem from "./navBarItem";
 import { BsBell, BsChevronDown, BsSearch } from "react-icons/bs";
 import MobileMenu from "./mobileMenu";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import AccountMenu from "./accountMenu";
 import Notification from "./notification";
 
@@ -11,6 +11,7 @@ const Navbar = () => {
   const [showSearchInput, setShowSearchInput] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [scrollingDown, setScrollingDown] = useState(false);
 
   const toggleMobileMenu = useCallback(() => {
     setShowMobileMenu((current) => !current);
@@ -33,14 +34,29 @@ const Navbar = () => {
       // Perform your search action using the searchQuery
       console.log("Searching for:", searchQuery);
     } else {
-        toggleSearchInput();
+      toggleSearchInput();
     }
   };
 
+  useEffect(() => {
+    let prevScrollPos = window.pageYOffset;
+
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setScrollingDown(currentScrollPos > prevScrollPos);
+      prevScrollPos = currentScrollPos;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="w-full fixed z-40">
+    <nav className="w-full fixed z-40 ">
       <div
-        className="
+        className={`
                 px-4
                 md:px-16
                 py-6
@@ -50,8 +66,9 @@ const Navbar = () => {
                 transition
                 duration-500
                 bg-zinc-900
-                bg-opacity-90
-            "
+                ${scrollingDown ? "bg-opacity-100" : "bg-opacity-20"}
+                
+            `}
       >
         <img className="h-4 md:h-7" src="/images/logo.png" alt="Logo" />
         <div className="flex-row ml-8 gap-7 hidden lg:flex">
@@ -76,7 +93,10 @@ const Navbar = () => {
           <MobileMenu visible={showMobileMenu} />
         </div>
         <div className="flex flex-row ml-auto gap-7 items-center">
-          <div onClick={toggleSearchInput} className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
+          <div
+            onClick={toggleSearchInput}
+            className="text-gray-200 hover:text-gray-300 cursor-pointer transition"
+          >
             <BsSearch />
           </div>
           {showSearchInput && (
@@ -96,9 +116,12 @@ const Navbar = () => {
               </button>
             </div>
           )}
-          <div onClick={toggleNotification} className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
+          <div
+            onClick={toggleNotification}
+            className="text-gray-200 hover:text-gray-300 cursor-pointer transition"
+          >
             <BsBell />
-            <Notification visible={showNotification}/>
+            <Notification visible={showNotification} />
           </div>
           <div
             onClick={toggleAccountMenu}
