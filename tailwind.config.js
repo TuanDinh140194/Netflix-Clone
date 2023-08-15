@@ -14,7 +14,40 @@ module.exports = {
       },
 
       screens: { xs: { max: "640px" } },
+
+      
+      keyframes: {
+        "slide-in-left": {
+          from: {
+            transform: "translateX(-100%)",
+            opacity: 0,
+          },
+          to: {
+            transform: "translateX(0)",
+            opacity: 1,
+          },
+        },
+
+        "slide-out-right":{
+          from: {
+            transform: "translateX(0)",
+            opacity: 1,
+          },
+          to: {
+            transform: "translateX(-100)",
+            opacity: 0,
+          },
+        }
+      },
+      animation: {
+        "slide-in-left": "slide-in-left 0.5s ease-in-out forwards",
+        "slide-out-right" : "slide-out-right 2.5s ease-in-out forwards",
+      },
     },
   },
   plugins: [require("tailwind-scrollbar-hide")],
+
+  
 };
+
+

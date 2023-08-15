@@ -30,7 +30,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                 object-cover
                 transition
                 duration
-                shadow-xl
+                shadow-2xl
                 rounded-md
                 group-hover: opacity-90
                 sm: group-hover:opacity-0
@@ -70,7 +70,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                     object-cover
                     transition
                     duration
-                    shadow-xl
+                    shadow-2xl
                     rounded-t-md
                     w-full
                     h-[10vw]
