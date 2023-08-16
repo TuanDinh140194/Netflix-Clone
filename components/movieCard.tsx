@@ -6,9 +6,10 @@ import { useRouter } from "next/router";
 import useInfoModal from "@/hooks/useInfoModal";
 interface MovieCardProps {
   data: Record<string, any>;
+  index: number;
 }
 
-const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
+const MovieCard: React.FC<MovieCardProps> = ({ data, index }) => {
   const router = useRouter();
   const { openModal } = useInfoModal();
 
@@ -57,9 +58,9 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                 xl:w-[400px]
                 scale-0
                 group-hover:shadow-2xl
-                group-hover:scale-110
+                ${index == 1000 ? "group-hover:scale-90" : "group-hover:scale-110"}
                 group-hover:-translate-y-[6vw]
-                group-hover:-translate-x-[0vw]
+                ${index == 0 ? "group-hover:-translate-x-[-2vw]" : index == 11 ? "group-hover:-translate-x-[7vw]" : "group-hover:-translate-x-[2vw]"}
                 group-hover:opacity-100
                
                 `}

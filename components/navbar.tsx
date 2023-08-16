@@ -54,7 +54,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="w-full fixed z-40 ">
+    <nav className="w-full fixed z-30 ">
       <div
         className={`
                 px-4
