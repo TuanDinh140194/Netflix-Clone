@@ -70,4 +70,5 @@ model Movie {
   genre String
   duration String
   year String
+  movieUrl String[]
 }

@@ -16,6 +16,7 @@ import useHorrorLists from "@/hooks/useHorrorList";
 import useRomance from "@/hooks/useRomanceList";
 import useComedy from "@/hooks/useComedyList";
 import useMartial from "@/hooks/useMartialArt";
+import useDrama from "@/hooks/useDramaList";
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
@@ -43,6 +44,7 @@ export default function Home() {
   const { data: romance = [] } = useRomance();
   const { data: comedy = [] } = useComedy();
   const { data: martialArt = [] } = useMartial();
+  const { data: drama = [] } = useDrama();
   const { isOpen, closeModal } = useInfoModal();
   const { isOpenList, closeListModal } = useListModal();
   return (
@@ -60,6 +62,7 @@ export default function Home() {
         <MovieList title="Romance Movie" data={romance} />
         <MovieList title="Comedy Movie" data={comedy} />
         <MovieList title="Martial Art Movie" data={martialArt} />
+        <MovieList title="Drama" data={drama} />
         <MovieList title="My List" data={favorites} />
 
       </div>
