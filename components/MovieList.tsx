@@ -54,11 +54,11 @@ const MovieList: React.FC<MovieListProps> = ({ data, title }) => {
 
             <span
               onClick={() => openModalList(data, title)}
-              className="hidden group-hover/title:block animate-slide-in-left ml-4 mt-2 text-cyan-400 xs:text-xs md:text-sm xl:text-base z-20 hover:text-cyan-300"
+              className="hidden group-hover/title:block animate-slide-in-left ml-4 mt-2 text-cyan-400 xs:text-xs md:text-sm xl:text-base z-20 hover:text-cyan-300 xs:mt-1"
             >
               Explore All
             </span>
-            <span className="hidden group-hover/arrow:block ml-1 mt-3 cursor-pointer animate-slide-in-left">
+            <span className="hidden group-hover/arrow:block ml-1 xl:mt-3 cursor-pointer animate-slide-in-left xs:mt-1 lg:mt-2">
               <MdArrowForwardIos
                 size={15}
                 color="cyan"

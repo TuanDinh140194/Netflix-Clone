@@ -20,10 +20,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data, index }) => {
   };
 
   return (
-    <div
-      
-      className="group bg-zinc-900 col-span relative h-[12vw]"
-    >
+    <div className="group bg-zinc-900 col-span relative h-[12vw]">
       <img
         onClick={handleCardClick}
         className="
@@ -54,13 +51,24 @@ const MovieCard: React.FC<MovieCardProps> = ({ data, index }) => {
                 invisible
                 sm:visible
                 delay-300
-                lg:w-[250px]
+                lg:w-[300px]
                 xl:w-[400px]
                 scale-0
                 group-hover:shadow-2xl
-                ${index == 1000 ? "group-hover:scale-90" : "group-hover:scale-110"}
+                ${
+                  index == 1000
+                    ? "group-hover:scale-90"
+                    : "group-hover:scale-110"
+                }
+                lg:
                 group-hover:-translate-y-[6vw]
-                ${index == 0 ? "group-hover:-translate-x-[-2vw]" : index == 11 ? "group-hover:-translate-x-[7vw]" : "group-hover:-translate-x-[2vw]"}
+                ${
+                  index == 0
+                    ? "group-hover:-translate-x-[-2vw]"
+                    : index == 11
+                    ? "group-hover:-translate-x-[7vw]"
+                    : "group-hover:-translate-x-[2vw]"
+                }
                 group-hover:opacity-100
                
                 `}
@@ -97,7 +105,8 @@ const MovieCard: React.FC<MovieCardProps> = ({ data, index }) => {
             </div>
           </div>
           <p className="text-green-400 font-semibold mt-4">
-            New <span className="text-white">2023</span>
+            {data.year == "2023" && <span className="mr-1"> New</span>}
+            <span className="text-white">{data.year}</span>
           </p>
           <div className="flex flex-row mt-4 gap-2 items-center">
             <p className="text-white text-[10px] lg:text-sm">{data.duration}</p>
