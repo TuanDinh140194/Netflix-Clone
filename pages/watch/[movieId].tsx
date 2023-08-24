@@ -76,9 +76,9 @@ const Watch = () => {
             onMouseEnter={() => setIsEpisodeMenuOpen(true)}
            
             ref={episodeButtonRef}
-            className="absolute top-4 right-10 text-white hover:scale-125 px-4 py-2 rounded z-20 md:px-0"
+            className="absolute top-4 right-10 text-white px-4 py-2 rounded z-20 md:px-0"
           >
-            <TbBoxMultiple size={25} />
+            <TbBoxMultiple className="hover:scale-125" size={25} />
             <span>
               {isEpisodeMenuOpen && (
                 <div className="absolute top-8 right-4 bg-gray-600 bg-opacity-40 mt-4 w-40 rounded z-20">

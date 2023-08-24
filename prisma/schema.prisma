@@ -72,3 +72,9 @@ model Movie {
   year String
   movieUrl String[]
 }
+
+model Notification {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  info String
+  image String?
+}

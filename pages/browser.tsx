@@ -17,10 +17,8 @@ import useRomance from "@/hooks/useRomanceList";
 import useComedy from "@/hooks/useComedyList";
 import useMartial from "@/hooks/useMartialArt";
 import useDrama from "@/hooks/useDramaList";
-import useHongKongList from "@/hooks/useHongKongList";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import Head from "next/head";
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
@@ -49,20 +47,18 @@ export default function Home() {
   const { data: romance = [] } = useRomance();
   const { data: comedy = [] } = useComedy();
   const { data: martialArt = [] } = useMartial();
-  const { data: hongkong = [] } = useHongKongList();
   const { data: drama = [] } = useDrama();
   const { isOpen, closeModal } = useInfoModal();
   const { isOpenList, closeListModal } = useListModal();
-  const [searchVisible, setSearchVisible] = useState(false);
 
   return (
     <>
-      <Head>
-        <title>Home - Netflix</title>
-      </Head>
       <InfoModal visible={isOpen} onClose={closeModal} />
       <MovieListModal visible={isOpenList} onClose={closeListModal} />
-      <Navbar searchVisible={searchVisible} searchValue="" />
+      <Navbar
+        searchVisible={true}
+        searchValue=""
+      />
       <BillBoard />
       <div className="pb-40">
         <MovieList title="Trending Now" data={movies} />
@@ -73,7 +69,6 @@ export default function Home() {
         <MovieList title="Romance Movie" data={romance} />
         <MovieList title="Comedy Movie" data={comedy} />
         <MovieList title="Martial Art Movie" data={martialArt} />
-        <MovieList title="Hong Kong Action" data={hongkong} />
         <MovieList title="Drama" data={drama} />
         <MovieList title="My List" data={favorites} />
       </div>
