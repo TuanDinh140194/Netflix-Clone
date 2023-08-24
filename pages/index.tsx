@@ -18,7 +18,6 @@ import useComedy from "@/hooks/useComedyList";
 import useMartial from "@/hooks/useMartialArt";
 import useDrama from "@/hooks/useDramaList";
 import useHongKongList from "@/hooks/useHongKongList";
-import { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
@@ -53,7 +52,6 @@ export default function Home() {
   const { data: drama = [] } = useDrama();
   const { isOpen, closeModal } = useInfoModal();
   const { isOpenList, closeListModal } = useListModal();
-  const [searchVisible, setSearchVisible] = useState(false);
 
   return (
     <>
@@ -62,7 +60,7 @@ export default function Home() {
       </Head>
       <InfoModal visible={isOpen} onClose={closeModal} />
       <MovieListModal visible={isOpenList} onClose={closeListModal} />
-      <Navbar searchVisible={searchVisible} searchValue="" />
+      <Navbar searchVisible={false} searchValue="" />
       <BillBoard />
       <div className="pb-40">
         <MovieList title="Trending Now" data={movies} />

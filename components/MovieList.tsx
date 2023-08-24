@@ -70,7 +70,7 @@ const MovieList: React.FC<MovieListProps> = ({ data, title }) => {
         <div className="group/move flex items-center xs:-mt-20 md:-my-12 lg:-my-15 xl:-my-20">
           <div className="absolute left-0 z-30 xs:mt-14 md:-mt-6 lg:-mt-6 xl:-mt-12">
             <button
-              className="hidden group-hover/move:block bg-gray-900 bg-opacity-0 xl:bg-opacity-40 lg:h-[125px] xl:h-[200px] xl:mt-4"
+              className="hidden group-hover/move:lg:block bg-gray-900 bg-opacity-0 xl:bg-opacity-40 lg:h-[125px] xl:h-[200px] xl:mt-4"
               onClick={handleScrollLeft}
             >
               <MdArrowBackIos
@@ -100,7 +100,7 @@ const MovieList: React.FC<MovieListProps> = ({ data, title }) => {
 
           <div className="absolute right-0 z-30 xs:mt-14 md:-mt-6 lg:-mt-6 xl:-mt-14">
             <button
-              className="hidden group-hover/move:block bg-gray-900 bg-opacity-0 xl:bg-opacity-40 lg:h-[125px] xl:h-[200px] xl:mt-4"
+              className="hidden group-hover/move:lg:block bg-gray-900 bg-opacity-0 xl:bg-opacity-40 lg:h-[125px] xl:h-[200px] xl:mt-4"
               onClick={handleScrollRight}
             >
               <MdArrowForwardIos

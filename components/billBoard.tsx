@@ -1,12 +1,21 @@
 import useBillboard from "@/hooks/useBillboard";
 import useInfoModal from "@/hooks/useInfoModal";
-import React, { useCallback } from "react";
-import { AiOutlineInfoCircle } from "react-icons/ai";
+import React, { useCallback, useState } from "react";
+import { AiOutlineInfoCircle, AiOutlineSound } from "react-icons/ai";
+import {BiVolumeMute} from "react-icons/bi";
 import PlayButton from "./playButton";
+
 
 const BillBoard = () => {
   const { data } = useBillboard();
   const { openModal } = useInfoModal();
+
+  const [isMuted, setIsMuted] = useState(true); // State for tracking video sound
+
+  const toggleMute = () => {
+    setIsMuted(prevMuted => !prevMuted);
+  };
+
 
   const handleOpenModal = useCallback(() => {
     openModal(data?.id);
@@ -16,7 +25,7 @@ const BillBoard = () => {
       <video
         className="w-full h-[56.25vw] object-cover brightness-[60%]"
         autoPlay
-        muted
+        muted = {isMuted}
         loop
         poster={data?.thumbnailUrl}
         src={data?.videoUrl}
@@ -33,6 +42,17 @@ const BillBoard = () => {
           <button onClick={handleOpenModal} className="bg-white text-white bg-opacity-30 rounded-md py-1 md:py-2 px-2 md:px-4 w-auto text-xs lg:text-lg font-semibold flex flex-row items-center hover:bg-opacity-20 transition">
             <AiOutlineInfoCircle className="mr-1" />
             More info
+          </button>
+          <button
+            onClick={toggleMute} // Attach toggleMute function
+            className="h-10 bg-white text-white bg-opacity-30 rounded-full py-1 md:py-2 px-2 md:px-4 w-auto text-xs lg:text-lg font-semibold flex flex-row items-center hover:bg-opacity-20 transition"
+          >
+            {isMuted ? (
+              <BiVolumeMute />
+            ) : (
+              <AiOutlineSound />
+            )}
+            
           </button>
         </div>
       </div>

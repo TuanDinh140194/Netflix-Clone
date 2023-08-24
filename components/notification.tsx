@@ -22,6 +22,7 @@ const Notification: React.FC<AccountMenuProps> = ({ visible }) => {
                 ? "border-b-2 border-gray-800"
                 : ""
             } hover:bg-black hover:bg-opacity-100`}
+            key={notify.id}
           >
             <div className="flex flex-col gap-3">
               <div className="px-3 group/item flex flex-row gap-3 items-center w-full py-4 ">
